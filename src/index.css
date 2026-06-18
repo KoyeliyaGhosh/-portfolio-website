@@ -238,13 +238,17 @@
   cursor: default;
 }
 .tech-card:hover {
-  border-color: rgba(243,198,35,0.3);
-  background: rgba(243,198,35,0.05);
+  border-color: var(--hover-glow) !important;
+  background: rgba(15,20,40,0.85) !important;
   transform: translateY(-4px);
-  box-shadow: 0 8px 30px rgba(243,198,35,0.08);
+  box-shadow: 0 0 25px var(--hover-glow) !important;
 }
 .tech-card img {
-  width: 44px; height: 44px; object-fit: contain;
+  width: 36px; height: 36px; object-fit: contain;
+  transition: transform 0.3s ease;
+}
+.tech-card:hover img {
+  transform: scale(1.1);
 }
 .tech-card span {
   font-size: 0.7rem; font-weight: 600;
