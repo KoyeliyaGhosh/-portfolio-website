@@ -1,28 +1,39 @@
 import { useEffect, useRef } from 'react';
 
 /**
- * useScrollReveal — attaches IntersectionObserver to a ref,
- * adds 'visible' class to elements with .reveal / .reveal-left / .reveal-right
+ * useScrollReveal — attaches IntersectionObserver to individual target elements inside the ref container,
+ * adding the 'visible' class when they enter the viewport.
  */
-export function useScrollReveal(threshold = 0.12) {
+export function useScrollReveal(threshold = 0.08) {
   const ref = useRef(null);
 
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
+    const container = ref.current;
+    if (!container) return;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          el.querySelectorAll('.reveal, .reveal-left, .reveal-right')
-            .forEach(node => node.classList.add('visible'));
-          observer.unobserve(el);
+    const targets = container.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+    const observers = [];
+
+    targets.forEach(target => {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            target.classList.add('visible');
+            observer.unobserve(target);
+          }
+        },
+        { 
+          threshold,
+          rootMargin: '0px 0px -30px 0px'
         }
-      },
-      { threshold }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
+      );
+      observer.observe(target);
+      observers.push(observer);
+    });
+
+    return () => {
+      observers.forEach(obs => obs.disconnect());
+    };
   }, [threshold]);
 
   return ref;

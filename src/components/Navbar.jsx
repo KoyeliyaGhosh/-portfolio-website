@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Code2 } from 'lucide-react';
 
 const NAV = ['Home', 'About', 'Experience', 'Projects', 'Certifications', 'Contact'];
 
@@ -51,18 +51,22 @@ export default function Navbar() {
 
         {/* Logo */}
         <button onClick={() => go('home')} id="nav-logo" style={{
-          display: 'flex', alignItems: 'center', gap: '0.5rem',
+          display: 'flex', alignItems: 'center', gap: '0.6rem',
           background: 'none', border: 'none', cursor: 'pointer',
         }}>
           <span style={{
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            width: 28, height: 28,
-            background: 'linear-gradient(135deg, #a855f7, #ec4899)',
-            borderRadius: 6, transform: 'rotate(45deg)',
-          }}>
-            <span style={{ transform: 'rotate(-45deg)', color: '#fff', fontSize: '0.65rem', fontWeight: 800 }}>K</span>
+            width: 32, height: 32,
+            background: 'linear-gradient(135deg, #f3c623, #ec4899, #a855f7)',
+            borderRadius: 8,
+            boxShadow: '0 0 15px rgba(243, 198, 35, 0.35)',
+            transition: 'all 0.3s ease',
+          }}
+          className="hover:scale-110 duration-300"
+          >
+            <Code2 size={16} color="#ffffff" strokeWidth={2.5} />
           </span>
-          <span style={{ fontWeight: 800, fontSize: '0.95rem', color: '#f1f5f9', letterSpacing: '0.03em' }}>
+          <span style={{ fontWeight: 800, fontSize: '1.05rem', color: '#f1f5f9', letterSpacing: '0.05em', fontFamily: "'Poppins', sans-serif" }}>
             KOYELIYA
           </span>
         </button>

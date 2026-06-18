@@ -2,29 +2,29 @@ import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const items = [
   {
-    emoji: '⬇️',
-    title: '29,000+ Global Downloads',
-    desc: 'Achieved 29,000+ downloads on the Face Recognition Model (koyelog/face) on HuggingFace, reflecting widespread real-world adoption across research and production.',
+    emoji: '🔥',
+    title: 'Built End-to-End AI Products Independently',
+    desc: 'Designed, trained, deployed, and maintained full-stack AI applications integrating Machine Learning models, APIs, cloud deployment, and modern web technologies.',
   },
   {
-    emoji: '🧠',
-    title: 'Published 411M-Param Medical LLM',
-    desc: 'Built and deployed a custom 411M-parameter Medical Large Language Model from scratch. Published publicly on Hugging Face for the global developer community.',
+    emoji: '🌍',
+    title: 'Open-Source AI Contributor',
+    desc: 'Published public repositories and AI models used by developers, researchers, and students worldwide through GitHub and Hugging Face, encouraging collaborative innovation.',
   },
   {
-    emoji: '🤗',
-    title: 'Multiple HuggingFace Model Publications',
-    desc: 'Published multiple Machine Learning and Deep Learning models on Hugging Face spanning NLP, computer vision, and audio — contributing to the open-source AI ecosystem.',
+    emoji: '🎓',
+    title: 'Multiple Industry Certifications',
+    desc: 'Earned certifications from AWS, Oracle, IBM, Google Cloud, and Coursera in Cloud Computing, Artificial Intelligence, DevOps, and Responsible AI.',
   },
   {
-    emoji: '🎤',
-    title: 'Technical Workshop Speaker — GDGC MSIT',
-    desc: 'Delivered technical workshops and contributed to the GDGC student developer community. Hosted "Going Incognito: App & Cloud Workshop" at MSIT campus.',
+    emoji: '💻',
+    title: 'Full-Stack & AI Builder',
+    desc: 'Successfully developed projects spanning Medical LLMs, Computer Vision, Tourism AI Systems, Crypto Analytics Platforms, Deepfake Detection, and AI Developer Tools.',
   },
   {
-    emoji: '☁️',
-    title: 'AWS Certified Solutions Architect Associate',
-    desc: 'Achieved AWS Certified Solutions Architect Associate certification (SAA-C03) with hands-on cloud deployment experience on AWS, GCP, and Oracle OCI.',
+    emoji: '📢',
+    title: 'Technical Community Contributor',
+    desc: 'Actively contributed to the GDGC MSIT community through app development, technical workshops, and student mentoring initiatives.',
   },
 ];
 
