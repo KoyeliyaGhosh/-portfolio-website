@@ -3,7 +3,31 @@ import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const projects = [
   {
-    num: '01', title: 'MediMind-411M', category: 'AI/ML Project',
+    num: '01', title: 'CodeBuddy Overlay', category: 'Desktop AI Assistant',
+    tech: ['Electron', 'React', 'Node.js', 'Tailwind CSS', 'Gemini API'],
+    desc: "Developed CodeBuddy Overlay, an AI-powered desktop assistant designed to enhance productivity by providing an interactive overlay experience on top of the user's workspace. The application offers quick access to AI assistance, helping users with coding support, problem-solving, and workflow management without interrupting their current tasks.",
+    github: 'https://github.com/koyeliya2004/codebuddy-overlay',
+    image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=600&auto=format&fit=crop&q=80',
+    color: '#f3c623' // Gold
+  },
+  {
+    num: '02', title: 'Crypto Trading Platform', category: 'Fintech Web Platform',
+    tech: ['React.js', 'Node.js', 'Express.js', 'REST APIs', 'Chart.js'],
+    desc: 'Developed a Crypto Trading Platform that enables users to monitor cryptocurrency market trends, analyze price movements, and make informed trading decisions through an interactive and user-friendly interface. The project integrates real-time market data visualization, trading analytics, and financial insights to help users track digital assets efficiently.',
+    github: 'https://github.com/koyeliya2004/Crypto_Trading',
+    image: 'https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=600&auto=format&fit=crop&q=80',
+    color: '#3b82f6' // Blue
+  },
+  {
+    num: '03', title: 'Resume Screening & Job Prediction System', category: 'AI / NLP System',
+    tech: ['Python', 'NLP', 'scikit-learn', 'Streamlit', 'Predictive Modeling'],
+    desc: 'Developed a Resume Screening & Job Prediction System that leverages Machine Learning and Natural Language Processing (NLP) to analyze resumes and predict suitable job roles based on candidates’ skills, qualifications, and experience. The system processes resume data, extracts relevant features, and performs intelligent classification to match profiles with potential career opportunities. ✨',
+    github: 'https://github.com/koyeliya2004/predict_resume',
+    image: 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=600&auto=format&fit=crop&q=80',
+    color: '#ec4899' // Pink
+  },
+  {
+    num: '04', title: 'MediMind-411M', category: 'Medical AI / LLM',
     tech: ['PyTorch', 'HuggingFace', 'LLM', 'Medical NLP'],
     desc: 'Built a custom 411M-parameter Medical LLM from scratch. Published on Hugging Face for healthcare text generation with multiple iterations.',
     github: 'https://github.com/koyeliya2004',
@@ -12,46 +36,22 @@ const projects = [
     color: '#10b981' // Green
   },
   {
-    num: '02', title: 'Face Recognition Model', category: 'Computer Vision',
+    num: '05', title: 'Face Recognition Model', category: 'Computer Vision',
     tech: ['ViT', 'PyTorch', 'Computer Vision'],
     desc: 'Custom Vision Transformer-based face recognition model. Achieved 29,000+ global downloads — most popular model in the portfolio. MIT License.',
     github: 'https://github.com/koyeliya2004',
     hf: 'https://huggingface.co/koyelog',
     image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&auto=format&fit=crop&q=80',
-    color: '#ec4899' // Pink
+    color: '#a855f7' // Purple
   },
   {
-    num: '03', title: 'Deepfake Voice Detector', category: 'Audio AI',
+    num: '06', title: 'Deepfake Voice Detector', category: 'Audio AI',
     tech: ['wav2vec2', 'PyTorch', 'Transfer Learning'],
     desc: 'State-of-the-art deepfake audio detection system. Trained on 8+ datasets including ASVspoof-2021 and WaveFake for reliable classification.',
     github: 'https://github.com/koyeliya2004',
     hf: 'https://huggingface.co/koyelog',
     image: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&auto=format&fit=crop&q=80',
-    color: '#3b82f6' // Blue
-  },
-  {
-    num: '04', title: 'Dhruv AI', category: 'Multi-model AI',
-    tech: ['T5', 'BART', 'EfficientNetV2', 'Keras'],
-    desc: 'Multi-model AI ecosystem for tourism — monument recognition, itinerary generation, hotel recommendation, sentiment analysis and forecasting.',
-    github: 'https://github.com/koyeliya2004',
-    image: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=600&auto=format&fit=crop&q=80',
-    color: '#f3c623' // Gold
-  },
-  {
-    num: '05', title: 'ReviewCoder', category: 'Full Stack',
-    tech: ['React', 'TypeScript', 'Node.js', 'LLM'],
-    desc: 'AI-powered code review platform for developers. Bug detection reports, code quality recommendations with secure backend architecture.',
-    github: 'https://github.com/koyeliya2004',
-    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&auto=format&fit=crop&q=80',
     color: '#06b6d4' // Cyan
-  },
-  {
-    num: '06', title: 'Voxel Art Generator v3.0', category: '3D / WebGL',
-    tech: ['Three.js', 'React', 'Groq API', 'WebGL'],
-    desc: 'AI-powered 3D voxel art generation platform with animated Three.js environments and procedural rendering systems.',
-    github: 'https://github.com/koyeliya2004',
-    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop&q=80',
-    color: '#a855f7' // Purple
   }
 ];
 

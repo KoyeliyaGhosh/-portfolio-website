@@ -49,13 +49,15 @@ const techGrid = [
 export default function Skills() {
   const ref = useScrollReveal(0.05);
 
-  // Generate simulated GitHub data for 38 contributions
+  // Generate simulated GitHub data for highly active contributions
   const githubCols = Array.from({ length: 42 }, () =>
     Array.from({ length: 7 }, () => {
       const val = Math.random();
-      if (val < 0.88) return 0; // mostly empty/grey
-      if (val < 0.96) return 1; // minor activity
-      return 2; // medium activity
+      if (val < 0.12) return 0; // 12% empty/grey
+      if (val < 0.40) return 1; // 28% minor activity
+      if (val < 0.65) return 2; // 25% medium activity
+      if (val < 0.88) return 3; // 23% high activity
+      return 4; // 12% maximum activity
     })
   );
 
@@ -143,6 +145,18 @@ export default function Skills() {
                     })}
                   </div>
                 ))}
+              </div>
+
+              {/* Glowing Gradient Progress Bar from Screenshot */}
+              <div className="my-4" style={{ height: '14px', background: '#070a13', borderRadius: '7px', overflow: 'hidden', border: '1px solid rgba(255, 255, 255, 0.04)', padding: '1px' }}>
+                <div
+                  style={{
+                    height: '100%',
+                    width: '72%',
+                    background: 'linear-gradient(90deg, #ec4899 0%, #f43f5e 30%, #f59e0b 60%, #10b981 100%)',
+                    borderRadius: '6px',
+                  }}
+                />
               </div>
 
               <div className="flex items-center justify-between mt-3 text-[9px] text-slate-500 font-mono select-none">

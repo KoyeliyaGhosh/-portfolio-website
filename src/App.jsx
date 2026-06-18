@@ -63,8 +63,8 @@ export default function App() {
                 animation: 'pulse 1.8s ease-in-out infinite',
               }}
             >
-              <span style={{ transform: 'rotate(-45deg)', color: '#fff', fontSize: '1.8rem', fontWeight: 900, fontFamily: "'Poppins', sans-serif" }}>
-                K
+              <span style={{ transform: 'rotate(-45deg)', color: '#fff', fontSize: '1.5rem', fontWeight: 900, fontFamily: "'Fira Code', monospace" }}>
+                {'</>'}
               </span>
             </div>
             

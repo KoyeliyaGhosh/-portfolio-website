@@ -274,3 +274,20 @@
   50% { transform: translateX(-10%); }
   100% { transform: translateX(100%); }
 }
+
+/* ── Timeline Flow Line Animation ───────────────── */
+@keyframes flowDown {
+  0% {
+    background-position-y: 0;
+  }
+  100% {
+    background-position-y: 400px;
+  }
+}
+
+.timeline-line-animated {
+  background: linear-gradient(to bottom, rgba(255,255,255,0.05), var(--gold), var(--pink), var(--purple), rgba(255,255,255,0.05));
+  background-size: 100% 400px;
+  animation: flowDown 8s linear infinite;
+  box-shadow: 0 0 8px rgba(243,198,35,0.25);
+}
