@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Koyeliya Ghosh — Portfolio Website
 
 A complete, professional, and modern personal portfolio website built with **React + Vite + Tailwind CSS**.
@@ -146,3 +147,6 @@ B.Tech CSE — MAKAUT (MSIT), Kolkata
 🐙 [github.com/koyelya2004](https://github.com/koyelya2004)  
 🤗 [huggingface.co/koyelog](https://huggingface.co/koyelog)  
 💼 [linkedin.com/in/koyeliya-ghosh-35718b324](https://linkedin.com/in/koyeliya-ghosh-35718b324)
+=======
+# -portfolio-website
+>>>>>>> 87f407bb77dddb66080c106b355ad37c820dae0e
