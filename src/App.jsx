@@ -9,12 +9,16 @@ import Certifications from './components/Certifications';
 import Achievements from './components/Achievements';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import WaveBackground from './components/WaveBackground';
 
 export default function App() {
   return (
-    <div className="min-h-screen" style={{ background: '#030812' }}>
+    <div className="min-h-screen relative" style={{ background: '#0a0f1d' }}>
+      {/* Fixed wave animation across entire site */}
+      <WaveBackground />
+
       <Navbar />
-      <main>
+      <main className="relative z-10">
         <Hero />
         <About />
         <Education />

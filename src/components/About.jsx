@@ -4,75 +4,96 @@ export default function About() {
   const ref = useScrollReveal();
 
   return (
-    <section id="about" ref={ref} className="section-card py-24 relative overflow-hidden">
+    <section id="about" ref={ref} className="py-28 relative overflow-hidden">
       <div className="max-w-5xl mx-auto px-6 lg:px-8">
 
-        <div className="reveal text-center mb-12">
-          <div className="section-divider" />
-          <h2 className="section-heading mb-3">About Me</h2>
-          <p className="section-subtitle">Professional background &amp; what drives me</p>
+        <div className="reveal mb-12">
+          <h2 className="section-heading mb-3">
+            <span className="code-prefix">{'</>'}</span> ABOUT ME
+          </h2>
+          <div className="gold-line" style={{ maxWidth: 400 }} />
         </div>
 
-        {/* Professional Summary card */}
-        <div className="card reveal p-8 mb-8 relative overflow-hidden">
-          {/* Accent line */}
-          <div style={{ position:'absolute', left:0, top:0, bottom:0, width:3, borderRadius:'14px 0 0 14px',
-            background:'linear-gradient(to bottom, #3b82f6, #10b981)' }} />
-          <div className="pl-4">
-            <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color:'#3b82f6' }}>
-              Professional Summary
-            </p>
-            <p className="text-slate-300 text-base leading-relaxed">
-              Aspiring AI and Software Developer with strong expertise in Machine Learning, Deep Learning,
-              Full-Stack Development, and Cloud Technologies. Experienced in building production-ready AI systems,
-              Large Language Models, Computer Vision applications, and scalable web platforms.
-              Passionate about Generative AI, research-driven development, and creating impactful technology solutions.
-            </p>
-          </div>
+        {/* My Journey */}
+        <div className="reveal mb-12 relative pl-8" style={{ borderLeft: '2px solid rgba(243,198,35,0.2)' }}>
+          <div style={{
+            position: 'absolute', left: -5, top: 0, width: 10, height: 10,
+            borderRadius: '50%', background: '#f3c623',
+            boxShadow: '0 0 10px rgba(243,198,35,0.4)',
+          }} />
+          <p className="text-slate-300 text-base leading-relaxed mb-4">
+            I'm a developer focused on building <strong style={{ color: '#f3c623' }}>AI-powered</strong> applications
+            and scalable web systems. I enjoy transforming ideas into real-world products using{' '}
+            <strong style={{ color: '#f3c623' }}>clean architecture</strong> and{' '}
+            <strong style={{ color: '#f3c623' }}>modern technologies</strong>.
+          </p>
+          <div style={{
+            position: 'absolute', left: -5, bottom: -20, width: 10, height: 10,
+            borderRadius: '50%', background: '#ec4899',
+            boxShadow: '0 0 10px rgba(236,72,153,0.4)',
+          }} />
+          <p className="text-slate-300 text-base leading-relaxed">
+            My experience spans across <strong style={{ color: '#a855f7' }}>full-stack development</strong>,{' '}
+            <strong style={{ color: '#a855f7' }}>machine learning</strong>, and{' '}
+            <strong style={{ color: '#a855f7' }}>cloud-based systems</strong> —
+            from publishing production-grade LLMs on HuggingFace to building end-to-end web platforms.
+          </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-5">
-          {/* Quick info */}
-          <div className="card reveal-left p-6 d1">
-            <p className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color:'#10b981' }}>Details</p>
-            <div className="space-y-3">
-              {[
-                ['Name',     'Koyeliya Ghosh'],
-                ['Degree',   'B.Tech CSE'],
-                ['College',  'MAKAUT (MSIT)'],
-                ['Year',     '5th Semester · 2023–27'],
-                ['Location', 'Kolkata, West Bengal'],
-                ['Email',    'koyeliya2004@gmail.com'],
-              ].map(([k, v]) => (
-                <div key={k} className="flex flex-col gap-0.5">
-                  <span style={{ fontSize:'0.7rem', color:'#475569', fontWeight:600, textTransform:'uppercase', letterSpacing:'0.05em' }}>{k}</span>
-                  <span style={{ fontSize:'0.875rem', color:'#cbd5e1' }}>{v}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+        {/* Knowledge Matrix */}
+        <div className="reveal mb-8">
+          <h3 style={{ color: '#f3c623', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '1rem' }}>
+            ✦ KNOWLEDGE MATRIX
+          </h3>
+        </div>
 
-          {/* Focus areas */}
-          <div className="card reveal p-6 d2 lg:col-span-2">
-            <p className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color:'#60a5fa' }}>Focus Areas</p>
-            <div className="grid grid-cols-2 gap-3">
-              {[
-                ['🧠', 'Large Language Models',   'Fine-tuning, deployment, inference optimization'],
-                ['👁️', 'Computer Vision',          'Vision Transformers, CNNs, detection systems'],
-                ['🎵', 'Audio AI',                 'Deepfake detection, speech processing'],
-                ['🌐', 'Full-Stack Engineering',   'React, Next.js, FastAPI, Node.js'],
-                ['☁️', 'Cloud & DevOps',            'AWS, GCP, Oracle OCI, Docker, CI/CD'],
-                ['🔬', 'Research & Open Source',   'Published models on HuggingFace, MIT license'],
-              ].map(([e, title, desc]) => (
-                <div key={title} className="flex gap-3 p-3 rounded-lg" style={{ background:'rgba(255,255,255,0.02)', border:'1px solid rgba(255,255,255,0.05)' }}>
-                  <span className="text-xl flex-shrink-0 mt-0.5">{e}</span>
-                  <div>
-                    <div style={{ fontSize:'0.8125rem', fontWeight:600, color:'#e2e8f0' }}>{title}</div>
-                    <div style={{ fontSize:'0.73rem', color:'#475569', marginTop:'0.15rem' }}>{desc}</div>
-                  </div>
-                </div>
-              ))}
+        <div className="grid lg:grid-cols-3 gap-4 mb-8">
+          {[
+            {
+              icon: '🧠', title: 'AI Systems',
+              desc: 'LLM fine-tuning, Vision Transformers, Audio deepfake detection, HuggingFace deployment',
+              color: '#f3c623',
+            },
+            {
+              icon: '🌐', title: 'Full-Stack Web',
+              desc: 'React, Next.js, Node.js, FastAPI, Firebase — end-to-end application development',
+              color: '#a855f7',
+            },
+            {
+              icon: '⚙️', title: 'Core Engineering',
+              desc: 'Data structures, system design, cloud architecture (AWS, GCP, OCI), CI/CD pipelines',
+              color: '#ec4899',
+            },
+          ].map(item => (
+            <div key={item.title} className="card reveal p-6"
+              onMouseEnter={e => { e.currentTarget.style.borderColor = `${item.color}40`; }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = ''; }}
+            >
+              <div className="flex items-center gap-3 mb-3">
+                <span className="text-2xl">{item.icon}</span>
+                <h4 style={{ color: item.color, fontWeight: 700, fontSize: '0.9rem' }}>{item.title}</h4>
+              </div>
+              <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
             </div>
+          ))}
+        </div>
+
+        {/* Quick Details */}
+        <div className="card reveal p-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {[
+              ['Name', 'Koyeliya Ghosh'],
+              ['Degree', 'B.Tech CSE'],
+              ['College', 'MAKAUT (MSIT)'],
+              ['Year', '5th Semester · 2023–27'],
+              ['Location', 'Kolkata, West Bengal'],
+              ['Email', 'koyeliya2004@gmail.com'],
+            ].map(([k, v]) => (
+              <div key={k}>
+                <span style={{ fontSize: '0.7rem', color: '#f3c623', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em' }}>{k}</span>
+                <div style={{ fontSize: '0.875rem', color: '#cbd5e1', marginTop: '0.15rem' }}>{v}</div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

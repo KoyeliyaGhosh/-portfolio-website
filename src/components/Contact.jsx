@@ -13,61 +13,64 @@ export default function Contact() {
     try { await navigator.clipboard.writeText(val); setCopied(key); setTimeout(() => setCopied(null), 2000); } catch {}
   };
 
-  const contactInfo = [
-    { icon: Mail,  key:'email', label:'Email',    val:'koyeliya2004@gmail.com', href:'mailto:koyeliya2004@gmail.com', copy:true,  color:'#60a5fa' },
-    { icon: Phone, key:'phone', label:'Phone',    val:'+91 85830 15279',        href:'tel:+918583015279',             copy:true,  color:'#34d399' },
-    { icon: MapPin,key:'loc',   label:'Location', val:'Kolkata, West Bengal, India', href:null,                       copy:false, color:'#94a3b8' },
+  const contactCards = [
+    { icon: Mail, key: 'email', label: 'Email', val: 'koyeliya2004@gmail.com', href: 'mailto:koyeliya2004@gmail.com', copy: true },
+    { icon: Phone, key: 'phone', label: 'Phone', val: '+91 85830 15279', href: 'tel:+918583015279', copy: true },
+    { icon: MapPin, key: 'loc', label: 'Location', val: 'Kolkata, West Bengal, India', href: null, copy: false },
   ];
 
   const socials = [
-    { label:'GitHub',      icon:<GhSVG />, href:'https://github.com/koyelya2004',                   user:'@koyelya2004',         color:'#e2e8f0', hb:'rgba(255,255,255,0.08)' },
-    { label:'HuggingFace', icon:<span style={{fontSize:18}}>🤗</span>, href:'https://huggingface.co/koyelog', user:'@koyelog', color:'#fbbf24', hb:'rgba(255,183,0,0.08)' },
-    { label:'LinkedIn',    icon:<LiSVG />, href:'https://linkedin.com/in/koyeliya-ghosh-35718b324', user:'koyeliya-ghosh',       color:'#60a5fa', hb:'rgba(59,130,246,0.08)' },
+    { label: 'GitHub', icon: <GhSVG />, href: 'https://github.com/koyelya2004', user: '@koyelya2004' },
+    { label: 'HuggingFace', icon: <span style={{ fontSize: 18 }}>🤗</span>, href: 'https://huggingface.co/koyelog', user: '@koyelog' },
+    { label: 'LinkedIn', icon: <LiSVG />, href: 'https://linkedin.com/in/koyeliya-ghosh-35718b324', user: 'koyeliya-ghosh' },
   ];
 
   return (
-    <section id="contact" ref={ref} className="section-dark py-24 relative overflow-hidden">
+    <section id="contact" ref={ref} className="py-28 relative overflow-hidden">
       <div className="max-w-5xl mx-auto px-6 lg:px-8">
 
-        <div className="reveal text-center mb-12">
-          <div className="section-divider" />
-          <h2 className="section-heading mb-3">Get In Touch</h2>
-          <p className="section-subtitle">Open to internships, research collaborations &amp; interesting conversations</p>
+        <div className="reveal mb-12">
+          <h2 className="section-heading mb-3">
+            <span className="code-prefix">{'</>'}</span> GET IN TOUCH
+          </h2>
+          <div className="gold-line" style={{ maxWidth: 400 }} />
+          <p className="section-subtitle mt-3">Open to internships, research collaborations & interesting conversations</p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8">
           {/* Left */}
           <div className="space-y-4 reveal-left">
             <div className="card p-6">
-              <h3 className="text-white font-bold text-base mb-2">Let's build something together</h3>
-              <p className="text-slate-400 text-sm leading-relaxed mb-6">
-                Whether you have a project in mind, a research collaboration, or just want to connect —
-                reach out. I reply within 24 hours.
+              <h3 style={{ color: '#f1f5f9', fontWeight: 700, fontSize: '1rem', marginBottom: '0.5rem' }}>
+                Let's build something together
+              </h3>
+              <p style={{ color: '#94a3b8', fontSize: '0.875rem', lineHeight: 1.6, marginBottom: '1.5rem' }}>
+                Whether you have a project in mind, a research collaboration, or just want to connect — reach out. I reply within 24 hours.
               </p>
               <div className="space-y-3">
-                {contactInfo.map(item => (
+                {contactCards.map(item => (
                   <div key={item.key}
-                    className="flex items-center gap-3 p-3.5 rounded-lg transition-all"
-                    style={{ background:'rgba(255,255,255,0.02)', border:'1px solid rgba(255,255,255,0.06)' }}>
-                    <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
-                      style={{ background:`${item.color}12` }}>
-                      <item.icon size={15} style={{ color: item.color }} />
+                    className="flex items-center gap-3 p-3.5 rounded-lg"
+                    style={{ background: 'rgba(243,198,35,0.03)', border: '1px solid rgba(243,198,35,0.1)' }}>
+                    <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
+                      style={{ background: 'rgba(243,198,35,0.08)' }}>
+                      <item.icon size={15} style={{ color: '#f3c623' }} />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <div className="text-xs text-slate-600 mb-0.5">{item.label}</div>
+                      <div style={{ fontSize: '0.7rem', color: '#64748b', marginBottom: '0.1rem' }}>{item.label}</div>
                       {item.href
-                        ? <a href={item.href} id={`c-${item.key}`}
-                            className="text-sm font-medium truncate block transition-colors hover:underline"
-                            style={{ color: item.color }}>{item.val}</a>
-                        : <span className="text-sm text-slate-400">{item.val}</span>
+                        ? <a href={item.href} style={{ fontSize: '0.85rem', fontWeight: 500, color: '#f3c623', textDecoration: 'none' }}
+                            onMouseEnter={e => e.currentTarget.style.textDecoration = 'underline'}
+                            onMouseLeave={e => e.currentTarget.style.textDecoration = 'none'}>{item.val}</a>
+                        : <span style={{ fontSize: '0.85rem', color: '#cbd5e1' }}>{item.val}</span>
                       }
                     </div>
                     {item.copy && (
                       <button onClick={() => copy(item.val, item.key)}
-                        id={`copy-${item.key}`}
-                        className="text-slate-600 hover:text-white transition-colors flex-shrink-0"
-                        aria-label={`Copy ${item.label}`}>
-                        {copied === item.key ? <Check size={14} style={{color:item.color}} /> : <Copy size={14} />}
+                        style={{ color: '#64748b', background: 'none', border: 'none', cursor: 'pointer', transition: 'color 0.2s' }}
+                        onMouseEnter={e => e.currentTarget.style.color = '#f3c623'}
+                        onMouseLeave={e => e.currentTarget.style.color = '#64748b'}>
+                        {copied === item.key ? <Check size={14} style={{ color: '#22c55e' }} /> : <Copy size={14} />}
                       </button>
                     )}
                   </div>
@@ -75,13 +78,12 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Available */}
             <div className="flex items-center gap-3 p-4 rounded-xl"
-              style={{ background:'rgba(16,185,129,0.05)', border:'1px solid rgba(16,185,129,0.15)' }}>
-              <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse flex-shrink-0" />
+              style={{ background: 'rgba(34,197,94,0.04)', border: '1px solid rgba(34,197,94,0.15)' }}>
+              <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: '#22c55e', animation: 'pulse 1.5s ease infinite' }} />
               <div>
-                <p className="text-green-400 text-sm font-semibold">Available for opportunities</p>
-                <p className="text-slate-600 text-xs mt-0.5">ML internships · research · freelance</p>
+                <p style={{ color: '#22c55e', fontSize: '0.875rem', fontWeight: 600 }}>Available for opportunities</p>
+                <p style={{ color: '#64748b', fontSize: '0.75rem' }}>ML internships · research · freelance</p>
               </div>
             </div>
           </div>
@@ -89,32 +91,32 @@ export default function Contact() {
           {/* Right */}
           <div className="space-y-4 reveal-right">
             <div className="card p-6">
-              <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-4">Online</p>
+              <p style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#f3c623', marginBottom: '1rem' }}>
+                ✦ ONLINE
+              </p>
               <div className="space-y-2.5">
                 {socials.map(s => (
                   <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
-                    id={`social-${s.label.toLowerCase()}`}
-                    className="flex items-center gap-3 p-3.5 rounded-lg border transition-all group"
-                    style={{ background:'rgba(255,255,255,0.02)', borderColor:'rgba(255,255,255,0.06)' }}
-                    onMouseEnter={e => { e.currentTarget.style.background = s.hb; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)'; e.currentTarget.style.transform = 'translateX(4px)'; }}
-                    onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.02)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)'; e.currentTarget.style.transform = ''; }}
+                    className="flex items-center gap-3 p-3.5 rounded-lg transition-all group"
+                    style={{ background: 'rgba(243,198,35,0.03)', border: '1px solid rgba(243,198,35,0.1)', textDecoration: 'none' }}
+                    onMouseEnter={e => { e.currentTarget.style.background = 'rgba(243,198,35,0.06)'; e.currentTarget.style.borderColor = 'rgba(243,198,35,0.25)'; e.currentTarget.style.transform = 'translateX(4px)'; }}
+                    onMouseLeave={e => { e.currentTarget.style.background = 'rgba(243,198,35,0.03)'; e.currentTarget.style.borderColor = 'rgba(243,198,35,0.1)'; e.currentTarget.style.transform = ''; }}
                   >
-                    <span style={{ color: s.color }}>{s.icon}</span>
+                    <span style={{ color: '#f3c623' }}>{s.icon}</span>
                     <div className="flex-1">
-                      <div className="text-sm font-semibold" style={{ color: s.color }}>{s.label}</div>
-                      <div className="text-xs text-slate-600">{s.user}</div>
+                      <div style={{ fontSize: '0.875rem', fontWeight: 600, color: '#f1f5f9' }}>{s.label}</div>
+                      <div style={{ fontSize: '0.75rem', color: '#64748b' }}>{s.user}</div>
                     </div>
-                    <ExternalLink size={13} className="text-slate-700 group-hover:text-slate-400 transition-colors" />
+                    <ExternalLink size={13} style={{ color: '#334155' }} />
                   </a>
                 ))}
               </div>
             </div>
 
-            <a href="mailto:koyeliya2004@gmail.com" id="contact-cta"
-              className="btn-primary w-full justify-center py-3.5 text-sm rounded-xl"
-              style={{ display:'flex' }}>
-              <Send size={15} className="mr-2" />
-              Send an Email
+            <a href="mailto:koyeliya2004@gmail.com" id="contact-cta" className="btn-primary"
+              style={{ display: 'flex', justifyContent: 'center', width: '100%', padding: '0.9rem', borderRadius: 12 }}>
+              <Send size={15} style={{ marginRight: '0.5rem' }} />
+              SEND AN EMAIL
             </a>
           </div>
         </div>
