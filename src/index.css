@@ -291,3 +291,10 @@
   animation: flowDown 8s linear infinite;
   box-shadow: 0 0 8px rgba(243,198,35,0.25);
 }
+
+/* ── Custom Cursor body hide rule ───────────────── */
+@media (pointer: fine) {
+  body, a, button, select, input, textarea, [role="button"], .card, .tech-card, #ft-top, #hero-scroll, #hero-work, #hero-contact, #proj-all {
+    cursor: none !important;
+  }
+}

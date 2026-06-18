@@ -11,6 +11,7 @@ import Achievements from './components/Achievements';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import WaveBackground from './components/WaveBackground';
+import CustomCursor from './components/CustomCursor';
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -110,6 +111,9 @@ export default function App() {
           </div>
         </div>
       )}
+
+      {/* Custom mouse cursor glow trailing animation */}
+      <CustomCursor />
 
       {/* Fixed wave animation across entire site */}
       <WaveBackground />

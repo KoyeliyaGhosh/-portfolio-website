@@ -128,10 +128,6 @@ export default function Experience() {
                         ● Current
                       </span>
                     )}
-                    <span className="text-xs px-2.5 py-1 rounded-md"
-                      style={{ background: 'rgba(243,198,35,0.06)', color: '#f3c623', border: '1px solid rgba(243,198,35,0.15)' }}>
-                      {exp.type}
-                    </span>
                   </div>
                 </div>
 
