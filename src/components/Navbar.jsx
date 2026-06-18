@@ -1,97 +1,89 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
-const navItems = ['Home', 'About', 'Skills', 'Experience', 'Projects', 'Certifications', 'Achievements', 'Contact'];
+const NAV = ['Home','About','Education','Skills','Experience','Projects','Certifications','Achievements','Contact'];
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [open, setOpen]       = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
+  const [active, setActive]   = useState('home');
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 60);
-      const sections = [...navItems].map(i => i.toLowerCase());
-      for (const section of [...sections].reverse()) {
-        const el = document.getElementById(section);
-        if (el && window.scrollY >= el.offsetTop - 120) {
-          setActiveSection(section);
-          break;
-        }
+    const onScroll = () => {
+      setScrolled(window.scrollY > 55);
+      const ids = [...NAV].map(n => n.toLowerCase());
+      for (const id of [...ids].reverse()) {
+        const el = document.getElementById(id);
+        if (el && window.scrollY >= el.offsetTop - 130) { setActive(id); break; }
       }
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', onScroll, { passive:true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const scrollTo = (id) => {
-    document.getElementById(id.toLowerCase())?.scrollIntoView({ behavior: 'smooth' });
-    setIsOpen(false);
+  const go = (id) => {
+    document.getElementById(id.toLowerCase())?.scrollIntoView({ behavior:'smooth' });
+    setOpen(false);
   };
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${
-        scrolled
-          ? 'py-3 shadow-2xl'
-          : 'py-5'
-      }`}
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'py-3' : 'py-5'}`}
       style={scrolled ? {
-        background: 'rgba(6,13,26,0.92)',
-        backdropFilter: 'blur(20px)',
-        WebkitBackdropFilter: 'blur(20px)',
-        borderBottom: '1px solid rgba(45,212,191,0.1)',
-      } : { background: 'transparent' }}
+        background:'rgba(3,8,18,0.92)',
+        backdropFilter:'blur(20px)',
+        WebkitBackdropFilter:'blur(20px)',
+        borderBottom:'1px solid rgba(255,255,255,0.06)',
+        boxShadow:'0 1px 30px rgba(0,0,0,0.5)',
+      } : { background:'transparent' }}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between">
+
         {/* Logo */}
-        <button onClick={() => scrollTo('home')} id="nav-logo"
-          className="text-lg font-bold tracking-tight"
-          style={{ background: 'linear-gradient(135deg,#2dd4bf,#22d3ee)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-          Koyeliya<span style={{ color: '#2dd4bf', WebkitTextFillColor: '#2dd4bf' }}>.</span>
+        <button onClick={() => go('home')} id="nav-logo"
+          className="font-black text-base tracking-tight"
+          style={{ background:'linear-gradient(135deg,#60a5fa,#34d399)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', border:'none', cursor:'pointer' }}>
+          Koyeliya.
         </button>
 
-        {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-7">
-          {navItems.map((item) => (
-            <button key={item} id={`nav-${item.toLowerCase()}`}
-              onClick={() => scrollTo(item)}
-              className={`nav-link ${activeSection === item.toLowerCase() ? 'text-teal-400' : ''}`}>
-              {item}
+        {/* Desktop */}
+        <div className="hidden lg:flex items-center gap-6">
+          {NAV.map(n => (
+            <button key={n} id={`nav-${n.toLowerCase()}`}
+              onClick={() => go(n)}
+              className={`nav-link ${active === n.toLowerCase() ? 'active' : ''}`}>
+              {n}
             </button>
           ))}
         </div>
 
-        {/* Contact CTA — scrolls to #contact */}
-        <button
-          onClick={() => scrollTo('contact')}
-          id="nav-contact-btn"
-          className="hidden md:flex btn-primary text-sm"
-        >
+        {/* CTA */}
+        <button onClick={() => go('contact')} id="nav-contact"
+          className="hidden lg:flex btn-primary text-sm">
           Contact Me
         </button>
 
         {/* Mobile toggle */}
-        <button id="nav-mobile-toggle" onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-slate-400 hover:text-teal-400 transition-colors">
-          {isOpen ? <X size={22} /> : <Menu size={22} />}
+        <button id="nav-mobile" onClick={() => setOpen(!open)}
+          className="lg:hidden" aria-label="Toggle menu"
+          style={{ color:'#64748b', background:'none', border:'none', cursor:'pointer' }}
+          onMouseEnter={e=>e.currentTarget.style.color='#60a5fa'}
+          onMouseLeave={e=>e.currentTarget.style.color='#64748b'}>
+          {open ? <X size={22}/> : <Menu size={22}/>}
         </button>
       </div>
 
       {/* Mobile drawer */}
-      <div className={`md:hidden overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-screen' : 'max-h-0'}`}>
-        <div className="px-6 pt-4 pb-6 flex flex-col gap-3"
-          style={{ background: 'rgba(6,13,26,0.98)', borderTop: '1px solid rgba(45,212,191,0.1)' }}>
-          {navItems.map((item) => (
-            <button key={item} id={`mob-nav-${item.toLowerCase()}`}
-              onClick={() => scrollTo(item)}
-              className={`text-left py-2 font-medium transition-colors text-sm ${
-                activeSection === item.toLowerCase() ? 'text-teal-400' : 'text-slate-300 hover:text-teal-400'
-              }`}>
-              {item}
+      <div className={`lg:hidden overflow-hidden transition-all duration-300 ${open ? 'max-h-screen' : 'max-h-0'}`}>
+        <div className="px-6 pt-4 pb-5 flex flex-col gap-2.5"
+          style={{ background:'rgba(3,8,18,0.97)', borderTop:'1px solid rgba(255,255,255,0.05)' }}>
+          {NAV.map(n => (
+            <button key={n} id={`mob-${n.toLowerCase()}`} onClick={() => go(n)}
+              className={`text-left py-1.5 text-sm font-medium transition-colors ${active === n.toLowerCase() ? 'text-blue-400' : 'text-slate-500 hover:text-white'}`}
+              style={{ background:'none', border:'none', cursor:'pointer' }}>
+              {n}
             </button>
           ))}
-          <button onClick={() => scrollTo('contact')} className="btn-primary text-sm justify-center mt-2">
+          <button onClick={() => go('contact')} className="btn-primary text-sm justify-center mt-2">
             Contact Me
           </button>
         </div>

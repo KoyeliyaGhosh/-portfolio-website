@@ -1,80 +1,77 @@
-import { MapPin, GraduationCap, Zap, Heart } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-
-const highlights = [
-  { icon: GraduationCap, label: 'MAKAUT (MSIT)', desc: 'B.Tech CSE Student', color: '#2dd4bf' },
-  { icon: MapPin,        label: 'Kolkata, India', desc: 'West Bengal',       color: '#22d3ee' },
-  { icon: Zap,           label: 'AI/ML Focus',    desc: 'Deep Learning & LLMs', color: '#a78bfa' },
-  { icon: Heart,         label: 'Open Source',    desc: '6+ HuggingFace Models', color: '#f472b6' },
-];
-
-const passions = ['Large Language Models','Computer Vision','Deep Learning','Fine-tuning','Neural Architectures','AI Ethics'];
 
 export default function About() {
   const ref = useScrollReveal();
 
   return (
-    <section id="about" ref={ref} className="section-bg-alt relative py-28 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="about" ref={ref} className="section-card py-24 relative overflow-hidden">
+      <div className="max-w-5xl mx-auto px-6 lg:px-8">
 
-        {/* Heading */}
-        <div className="reveal text-center mb-14">
+        <div className="reveal text-center mb-12">
           <div className="section-divider" />
-          <h2 className="section-heading">About Me</h2>
-          <p className="section-subtitle">A little bit about who I am</p>
+          <h2 className="section-heading mb-3">About Me</h2>
+          <p className="section-subtitle">Professional background &amp; what drives me</p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        {/* Professional Summary card */}
+        <div className="card reveal p-8 mb-8 relative overflow-hidden">
+          {/* Accent line */}
+          <div style={{ position:'absolute', left:0, top:0, bottom:0, width:3, borderRadius:'14px 0 0 14px',
+            background:'linear-gradient(to bottom, #3b82f6, #10b981)' }} />
+          <div className="pl-4">
+            <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color:'#3b82f6' }}>
+              Professional Summary
+            </p>
+            <p className="text-slate-300 text-base leading-relaxed">
+              Aspiring AI and Software Developer with strong expertise in Machine Learning, Deep Learning,
+              Full-Stack Development, and Cloud Technologies. Experienced in building production-ready AI systems,
+              Large Language Models, Computer Vision applications, and scalable web platforms.
+              Passionate about Generative AI, research-driven development, and creating impactful technology solutions.
+            </p>
+          </div>
+        </div>
 
-          {/* Text */}
-          <div className="space-y-6 reveal-left">
-            <div className="card-glass rounded-2xl p-8">
-              <p className="text-slate-300 text-base leading-relaxed mb-5">
-                I'm <span style={{ color: '#2dd4bf', fontWeight: 600 }}>Koyeliya Ghosh</span>, a B.Tech CSE student at{' '}
-                <span style={{ color: '#22d3ee', fontWeight: 600 }}>MAKAUT (MSIT)</span>, Kolkata — passionate about
-                building systems that think, learn, and adapt.
-              </p>
-              <p className="text-slate-400 text-sm leading-relaxed mb-5">
-                My journey spans <span style={{ color: '#2dd4bf' }}>AI/ML research</span>, open-source model publishing
-                on HuggingFace, real-world internships, and full-stack development. From fine-tuning 411M-parameter
-                Medical LLMs to crafting SOTA deepfake detectors — I believe in learning by building.
-              </p>
-              <p className="text-slate-400 text-sm leading-relaxed">
-                Beyond code, I'm an{' '}
-                <span style={{ color: '#22d3ee' }}>App Team Member &amp; Workshop Speaker at GDGC MSIT</span>,
-                mentoring peers and sharing knowledge on emerging technologies.
-              </p>
-            </div>
-
-            {/* Passions */}
-            <div>
-              <p className="text-slate-500 text-xs uppercase tracking-widest font-semibold mb-3">Passionate About</p>
-              <div className="flex flex-wrap gap-2">
-                {passions.map(p => <span key={p} className="tech-badge">{p}</span>)}
-              </div>
+        <div className="grid lg:grid-cols-3 gap-5">
+          {/* Quick info */}
+          <div className="card reveal-left p-6 d1">
+            <p className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color:'#10b981' }}>Details</p>
+            <div className="space-y-3">
+              {[
+                ['Name',     'Koyeliya Ghosh'],
+                ['Degree',   'B.Tech CSE'],
+                ['College',  'MAKAUT (MSIT)'],
+                ['Year',     '5th Semester · 2023–27'],
+                ['Location', 'Kolkata, West Bengal'],
+                ['Email',    'koyeliya2004@gmail.com'],
+              ].map(([k, v]) => (
+                <div key={k} className="flex flex-col gap-0.5">
+                  <span style={{ fontSize:'0.7rem', color:'#475569', fontWeight:600, textTransform:'uppercase', letterSpacing:'0.05em' }}>{k}</span>
+                  <span style={{ fontSize:'0.875rem', color:'#cbd5e1' }}>{v}</span>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Highlight cards */}
-          <div className="grid grid-cols-2 gap-4 reveal-right">
-            {highlights.map(({ icon: Icon, label, desc, color }, i) => (
-              <div key={label}
-                className={`card-glass rounded-2xl p-6 text-center reveal delay-${i + 1}`}>
-                <div className="w-11 h-11 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform"
-                  style={{ background: `${color}18` }}>
-                  <Icon size={20} style={{ color }} />
+          {/* Focus areas */}
+          <div className="card reveal p-6 d2 lg:col-span-2">
+            <p className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color:'#60a5fa' }}>Focus Areas</p>
+            <div className="grid grid-cols-2 gap-3">
+              {[
+                ['🧠', 'Large Language Models',   'Fine-tuning, deployment, inference optimization'],
+                ['👁️', 'Computer Vision',          'Vision Transformers, CNNs, detection systems'],
+                ['🎵', 'Audio AI',                 'Deepfake detection, speech processing'],
+                ['🌐', 'Full-Stack Engineering',   'React, Next.js, FastAPI, Node.js'],
+                ['☁️', 'Cloud & DevOps',            'AWS, GCP, Oracle OCI, Docker, CI/CD'],
+                ['🔬', 'Research & Open Source',   'Published models on HuggingFace, MIT license'],
+              ].map(([e, title, desc]) => (
+                <div key={title} className="flex gap-3 p-3 rounded-lg" style={{ background:'rgba(255,255,255,0.02)', border:'1px solid rgba(255,255,255,0.05)' }}>
+                  <span className="text-xl flex-shrink-0 mt-0.5">{e}</span>
+                  <div>
+                    <div style={{ fontSize:'0.8125rem', fontWeight:600, color:'#e2e8f0' }}>{title}</div>
+                    <div style={{ fontSize:'0.73rem', color:'#475569', marginTop:'0.15rem' }}>{desc}</div>
+                  </div>
                 </div>
-                <div className="font-semibold text-white text-sm mb-0.5">{label}</div>
-                <div className="text-slate-500 text-xs">{desc}</div>
-              </div>
-            ))}
-
-            {/* Quote */}
-            <div className="col-span-2 card-glass rounded-2xl p-5 text-center reveal delay-5">
-              <p className="text-slate-400 text-sm italic leading-relaxed">
-                "The best way to predict the future is to invent it."
-              </p>
-              <p className="text-xs font-semibold mt-2" style={{ color: '#2dd4bf' }}>— Alan Kay</p>
+              ))}
             </div>
           </div>
         </div>
