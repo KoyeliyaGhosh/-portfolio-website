@@ -104,12 +104,7 @@ export default function Hero() {
             </button>
           </div>
 
-          {/* Tags */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-            {['B.Tech CSE · MAKAUT MSIT', '5th Semester', 'Kolkata, India'].map(t => (
-              <span key={t} className="tag">{t}</span>
-            ))}
-          </div>
+
         </div>
 
         {/* RIGHT: Profile */}

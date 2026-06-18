@@ -153,7 +153,7 @@ export default function Experience() {
             return (
               <div key={i} className={`reveal d${(i % 6) + 1} relative pl-12 md:pl-[300px] pb-16 last:pb-0`}>
                 {/* The dot */}
-                <div className="absolute left-[12px] md:left-[240px] top-1.5 w-7 h-7 bg-[#0a0f1d] border-2 border-slate-700 rounded-full flex items-center justify-center z-10 transition-transform duration-300 hover:scale-110">
+                <div className="absolute left-[12px] md:left-[240px] top-1.5 w-7 h-7 bg-[#0a0f1d] border-2 border-slate-500 rounded-full flex items-center justify-center z-10 transition-transform duration-300 hover:scale-110">
                   <div className="w-2.5 h-2.5 bg-white rounded-full" />
                 </div>
 

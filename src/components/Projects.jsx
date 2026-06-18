@@ -52,6 +52,30 @@ const projects = [
     hf: 'https://huggingface.co/koyelog',
     image: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&auto=format&fit=crop&q=80',
     color: '#06b6d4' // Cyan
+  },
+  {
+    num: '07', title: 'Dhruv AI', category: 'Multi-model AI',
+    tech: ['T5', 'BART', 'EfficientNetV2', 'Keras'],
+    desc: 'Multi-model AI ecosystem for tourism — monument recognition, itinerary generation, hotel recommendation, sentiment analysis and forecasting.',
+    github: 'https://github.com/koyeliya2004',
+    image: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=600&auto=format&fit=crop&q=80',
+    color: '#f3c623' // Gold
+  },
+  {
+    num: '08', title: 'ReviewCoder', category: 'Full Stack',
+    tech: ['React', 'TypeScript', 'Node.js', 'LLM'],
+    desc: 'AI-powered code review platform for developers. Bug detection reports, code quality recommendations with secure backend architecture.',
+    github: 'https://github.com/koyeliya2004',
+    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&auto=format&fit=crop&q=80',
+    color: '#06b6d4' // Cyan
+  },
+  {
+    num: '09', title: 'Voxel Art Generator v3.0', category: '3D / WebGL',
+    tech: ['Three.js', 'React', 'Groq API', 'WebGL'],
+    desc: 'AI-powered 3D voxel art generation platform with animated Three.js environments and procedural rendering systems.',
+    github: 'https://github.com/koyeliya2004',
+    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop&q=80',
+    color: '#a855f7' // Purple
   }
 ];
 
