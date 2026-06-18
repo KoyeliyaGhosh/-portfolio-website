@@ -49,13 +49,13 @@ const techGrid = [
 export default function Skills() {
   const ref = useScrollReveal(0.05);
 
-  // Generate simulated GitHub data
+  // Generate simulated GitHub data for 38 contributions
   const githubCols = Array.from({ length: 42 }, () =>
     Array.from({ length: 7 }, () => {
       const val = Math.random();
-      if (val < 0.45) return 0;
-      if (val < 0.75) return Math.floor(Math.random() * 2) + 1;
-      return Math.floor(Math.random() * 2) + 3;
+      if (val < 0.88) return 0; // mostly empty/grey
+      if (val < 0.96) return 1; // minor activity
+      return 2; // medium activity
     })
   );
 
@@ -160,12 +160,12 @@ export default function Skills() {
 
             <div className="mt-8 pt-4 border-t border-slate-800/40">
               <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.4rem' }}>
-                <span style={{ fontSize: '1.8rem', fontWeight: 900, color: '#f3c623', lineHeight: 1 }}>972</span>
+                <span style={{ fontSize: '1.8rem', fontWeight: 900, color: '#f3c623', lineHeight: 1 }}>38</span>
                 <span style={{ fontSize: '0.75rem', color: '#64748b', fontWeight: 500 }}>contributions in the last year</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginTop: '0.75rem', fontSize: '0.75rem', color: '#cbd5e1' }}>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.11.82-.26.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.73.083-.73 1.205.086 1.837 1.237 1.837 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22v3.285c0 .315.21.69.825.57C20.565 21.795 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                <span className="font-mono text-slate-400">@koyelya2004</span>
+                <span className="font-mono text-slate-400">@koyeliya2004</span>
               </div>
             </div>
           </div>

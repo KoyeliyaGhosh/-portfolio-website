@@ -18,7 +18,7 @@ export default function Footer() {
 
           <div className="flex items-center gap-5">
             {[
-              { href: 'https://github.com/koyelya2004', icon: <GhSVG />, id: 'ft-gh' },
+              { href: 'https://github.com/koyeliya2004', icon: <GhSVG />, id: 'ft-gh' },
               { href: 'https://linkedin.com/in/koyeliya-ghosh-35718b324', icon: <LiSVG />, id: 'ft-li' },
               { href: 'mailto:koyeliya2004@gmail.com', icon: <Mail size={17} />, id: 'ft-mail' },
               { href: 'https://huggingface.co/koyelog', icon: <span style={{ fontSize: 17 }}>🤗</span>, id: 'ft-hf' },
@@ -42,12 +42,6 @@ export default function Footer() {
             onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(243,198,35,0.15)'; e.currentTarget.style.color = '#64748b'; }}>
             <ArrowUp size={15} />
           </button>
-        </div>
-
-        <div className="text-center mt-8 pt-6" style={{ borderTop: '1px solid rgba(243,198,35,0.06)' }}>
-          <p style={{ color: '#334155', fontSize: '0.75rem' }}>
-            © {new Date().getFullYear()} Koyeliya Ghosh · Built with React + Vite + Tailwind
-          </p>
         </div>
       </div>
     </footer>

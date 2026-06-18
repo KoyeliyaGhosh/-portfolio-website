@@ -134,16 +134,16 @@ export default function Experience() {
                   {isEven && <CardContent />}
                 </div>
 
-                {/* Center Column: Curved Wavy Winding Line (Snake) */}
+                {/* Center Column: Straight vertical line */}
                 <div className="w-12 md:w-28 relative flex-shrink-0 flex items-stretch select-none pointer-events-none">
-                  {/* Dynamic Curvy Snake Path Segment */}
+                  {/* Dynamic Straight Path Segment */}
                   <div className="absolute inset-0">
                     <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100">
                       <path
-                        d={isEven ? "M 50 0 C 15 30, 15 70, 50 100" : "M 50 0 C 85 30, 85 70, 50 100"}
+                        d="M 50 0 L 50 100"
                         fill="none"
                         stroke={exp.current ? "#22c55e" : "url(#roadmap-grad)"}
-                        strokeWidth="3.5"
+                        strokeWidth="3"
                         vectorEffect="non-scaling-stroke"
                         style={{
                           filter: exp.current 
@@ -154,11 +154,11 @@ export default function Experience() {
                     </svg>
                   </div>
 
-                  {/* Curvy Snake Glowing Node Dot */}
+                  {/* Glowing Node Dot */}
                   <div
                     className="absolute w-[14px] h-[14px] rounded-full z-20 border-2 border-[#0a0f1d] transition-all duration-300"
                     style={{
-                      left: isEven ? '20%' : '80%',
+                      left: '50%',
                       top: '50%',
                       transform: 'translate(-50%, -50%)',
                       background: exp.current ? '#22c55e' : '#f3c623',

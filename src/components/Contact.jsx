@@ -20,7 +20,7 @@ export default function Contact() {
   ];
 
   const socials = [
-    { label: 'GitHub', icon: <GhSVG />, href: 'https://github.com/koyelya2004', user: '@koyelya2004' },
+    { label: 'GitHub', icon: <GhSVG />, href: 'https://github.com/koyeliya2004', user: '@koyeliya2004' },
     { label: 'HuggingFace', icon: <span style={{ fontSize: 18 }}>🤗</span>, href: 'https://huggingface.co/koyelog', user: '@koyelog' },
     { label: 'LinkedIn', icon: <LiSVG />, href: 'https://linkedin.com/in/koyeliya-ghosh-35718b324', user: 'koyeliya-ghosh' },
   ];
