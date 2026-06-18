@@ -1,144 +1,92 @@
-import { useEffect, useRef } from 'react';
 import { Code2, Brain, Globe, Sparkles, Cloud, Wrench } from 'lucide-react';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
-const skillCategories = [
+const cats = [
   {
-    icon: Code2,
-    title: 'Languages',
-    color: 'from-violet-500/20 to-purple-500/20',
-    iconColor: 'text-violet-400',
-    borderColor: 'border-violet-500/20 hover:border-violet-400/40',
-    skills: ['Python', 'TypeScript', 'JavaScript', 'Java', 'C', 'SQL', 'Dart', 'HTML/CSS'],
+    icon: Code2, title: 'Languages', gradient: 'linear-gradient(135deg,#7c3aed,#a855f7)',
+    bg: 'rgba(124,58,237,0.08)', border: 'rgba(167,139,250,0.2)',
+    skills: ['Python','TypeScript','JavaScript','Java','C','SQL','Dart','HTML/CSS'],
   },
   {
-    icon: Brain,
-    title: 'ML / Deep Learning',
-    color: 'from-teal-500/20 to-emerald-500/20',
-    iconColor: 'text-teal-400',
-    borderColor: 'border-teal-500/20 hover:border-teal-400/40',
-    skills: ['PyTorch', 'TensorFlow', 'Keras', 'FastAI', 'scikit-learn', 'HuggingFace Transformers'],
+    icon: Brain, title: 'ML / Deep Learning', gradient: 'linear-gradient(135deg,#0d9488,#14b8a6)',
+    bg: 'rgba(13,148,136,0.08)', border: 'rgba(45,212,191,0.2)',
+    skills: ['PyTorch','TensorFlow','Keras','FastAI','scikit-learn','HuggingFace Transformers'],
   },
   {
-    icon: Globe,
-    title: 'Web / Backend',
-    color: 'from-cyan-500/20 to-blue-500/20',
-    iconColor: 'text-cyan-400',
-    borderColor: 'border-cyan-500/20 hover:border-cyan-400/40',
-    skills: ['React', 'Next.js', 'FastAPI', 'Flask', 'Node.js', 'Express', 'Vite', 'Firebase'],
+    icon: Globe, title: 'Web / Backend', gradient: 'linear-gradient(135deg,#0e7490,#06b6d4)',
+    bg: 'rgba(6,182,212,0.08)', border: 'rgba(34,211,238,0.2)',
+    skills: ['React','Next.js','FastAPI','Flask','Node.js','Express','Vite','Firebase'],
   },
   {
-    icon: Sparkles,
-    title: 'AI / LLM',
-    color: 'from-pink-500/20 to-rose-500/20',
-    iconColor: 'text-pink-400',
-    borderColor: 'border-pink-500/20 hover:border-pink-400/40',
-    skills: ['LLM Fine-tuning', 'ViT', 'wav2vec2', 'BART', 'T5', 'EfficientNet', 'Groq', 'Gemini API'],
+    icon: Sparkles, title: 'AI / LLM', gradient: 'linear-gradient(135deg,#be185d,#ec4899)',
+    bg: 'rgba(236,72,153,0.08)', border: 'rgba(244,114,182,0.2)',
+    skills: ['LLM Fine-tuning','ViT','wav2vec2','BART','T5','EfficientNet','Groq','Gemini API'],
   },
   {
-    icon: Cloud,
-    title: 'Cloud / Deploy',
-    color: 'from-orange-500/20 to-amber-500/20',
-    iconColor: 'text-orange-400',
-    borderColor: 'border-orange-500/20 hover:border-orange-400/40',
-    skills: ['Vercel', 'Render', 'Replit', 'AWS SAA-C03', 'GCP', 'Oracle OCI', 'Docker'],
+    icon: Cloud, title: 'Cloud / Deploy', gradient: 'linear-gradient(135deg,#c2410c,#f97316)',
+    bg: 'rgba(249,115,22,0.08)', border: 'rgba(251,146,60,0.2)',
+    skills: ['Vercel','Render','Replit','AWS SAA-C03','GCP','Oracle OCI','Docker'],
   },
   {
-    icon: Wrench,
-    title: 'Tools & Others',
-    color: 'from-slate-500/20 to-gray-500/20',
-    iconColor: 'text-slate-400',
-    borderColor: 'border-slate-500/20 hover:border-slate-400/40',
-    skills: ['GitHub Actions', 'Kaggle', 'Google Colab', 'VS Code', 'Three.js', 'Tailwind CSS'],
+    icon: Wrench, title: 'Tools & Others', gradient: 'linear-gradient(135deg,#334155,#64748b)',
+    bg: 'rgba(100,116,139,0.08)', border: 'rgba(148,163,184,0.2)',
+    skills: ['GitHub Actions','Kaggle','Google Colab','VS Code','Three.js','Tailwind CSS'],
   },
 ];
 
 export default function Skills() {
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.querySelectorAll('.skill-card').forEach((el, i) => {
-              setTimeout(() => {
-                el.style.opacity = '1';
-                el.style.transform = 'translateY(0)';
-              }, i * 80);
-            });
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
+  const ref = useScrollReveal();
 
   return (
-    <section id="skills" ref={sectionRef} className="py-28 hero-bg">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="section-heading">Technical Skills</h2>
-        <p className="section-subtitle">Technologies and tools I work with</p>
+    <section id="skills" ref={ref} className="hero-bg relative py-28 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skillCategories.map(({ icon: Icon, title, color, iconColor, borderColor, skills }, idx) => (
+        <div className="reveal text-center mb-14">
+          <div className="section-divider" />
+          <h2 className="section-heading">Technical Skills</h2>
+          <p className="section-subtitle">Technologies &amp; tools I work with daily</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {cats.map(({ icon: Icon, title, gradient, bg, border, skills }, i) => (
             <div
               key={title}
-              id={`skill-card-${idx}`}
-              className={`skill-card rounded-2xl p-6 border transition-all duration-500 cursor-default`}
+              id={`skill-${i}`}
+              className={`reveal delay-${(i % 6) + 1} rounded-2xl p-6 border transition-all duration-300 hover:-translate-y-1`}
               style={{
-                background: `linear-gradient(135deg, ${color.includes('violet') ? 'rgba(139,92,246,0.05)' : color.includes('teal') ? 'rgba(20,184,166,0.05)' : color.includes('cyan') ? 'rgba(6,182,212,0.05)' : color.includes('pink') ? 'rgba(236,72,153,0.05)' : color.includes('orange') ? 'rgba(249,115,22,0.05)' : 'rgba(100,116,139,0.05)'}, rgba(15,32,64,0.4))`,
-                backdropFilter: 'blur(12px)',
-                borderColor: 'rgba(45,212,191,0.12)',
-                opacity: 0,
-                transform: 'translateY(24px)',
-                transition: 'opacity 0.5s ease, transform 0.5s ease, border-color 0.3s ease, box-shadow 0.3s ease',
+                background: bg,
+                borderColor: border,
+                boxShadow: 'none',
               }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(45,212,191,0.35)';
-                e.currentTarget.style.boxShadow = '0 8px 32px rgba(45,212,191,0.12)';
-                e.currentTarget.style.transform = 'translateY(-4px)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(45,212,191,0.12)';
-                e.currentTarget.style.boxShadow = 'none';
-                e.currentTarget.style.transform = 'translateY(0)';
-              }}
+              onMouseEnter={e => e.currentTarget.style.boxShadow = `0 12px 40px ${bg.replace('0.08','0.25')}`}
+              onMouseLeave={e => e.currentTarget.style.boxShadow = 'none'}
             >
               {/* Header */}
               <div className="flex items-center gap-3 mb-5">
-                <div
-                  className={`w-10 h-10 rounded-xl flex items-center justify-center bg-gradient-to-br ${color}`}
-                >
-                  <Icon size={20} className={iconColor} />
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center"
+                  style={{ background: gradient }}>
+                  <Icon size={18} color="#fff" />
                 </div>
-                <h3 className="font-semibold text-white text-base">{title}</h3>
+                <h3 className="font-bold text-white text-sm">{title}</h3>
               </div>
 
-              {/* Skills */}
+              {/* Skill pills */}
               <div className="flex flex-wrap gap-2">
-                {skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300 transition-all duration-200 hover:text-white cursor-default"
-                    style={{
-                      background: 'rgba(255,255,255,0.05)',
-                      border: '1px solid rgba(255,255,255,0.08)',
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.background = 'rgba(20,184,166,0.12)';
-                      e.currentTarget.style.borderColor = 'rgba(20,184,166,0.3)';
+                {skills.map(s => (
+                  <span key={s}
+                    className="px-2.5 py-1 rounded-lg text-xs font-medium text-slate-300 transition-all duration-200 cursor-default"
+                    style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}
+                    onMouseEnter={e => {
+                      e.currentTarget.style.background = 'rgba(45,212,191,0.1)';
+                      e.currentTarget.style.borderColor = 'rgba(45,212,191,0.3)';
                       e.currentTarget.style.color = '#2dd4bf';
                     }}
-                    onMouseLeave={(e) => {
+                    onMouseLeave={e => {
                       e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
                       e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)';
                       e.currentTarget.style.color = '';
                     }}
-                  >
-                    {skill}
-                  </span>
+                  >{s}</span>
                 ))}
               </div>
             </div>

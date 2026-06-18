@@ -1,108 +1,80 @@
-import { useEffect, useRef } from 'react';
-import { MapPin, GraduationCap, Heart, Zap } from 'lucide-react';
+import { MapPin, GraduationCap, Zap, Heart } from 'lucide-react';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const highlights = [
-  { icon: GraduationCap, label: 'MAKAUT (MSIT)', desc: 'B.Tech CSE Student' },
-  { icon: MapPin, label: 'Kolkata, India', desc: 'West Bengal' },
-  { icon: Zap, label: 'AI/ML Focus', desc: 'Deep Learning & LLMs' },
-  { icon: Heart, label: 'Open Source', desc: '6+ HuggingFace Models' },
+  { icon: GraduationCap, label: 'MAKAUT (MSIT)', desc: 'B.Tech CSE Student', color: '#2dd4bf' },
+  { icon: MapPin,        label: 'Kolkata, India', desc: 'West Bengal',       color: '#22d3ee' },
+  { icon: Zap,           label: 'AI/ML Focus',    desc: 'Deep Learning & LLMs', color: '#a78bfa' },
+  { icon: Heart,         label: 'Open Source',    desc: '6+ HuggingFace Models', color: '#f472b6' },
 ];
 
-const passions = [
-  'Large Language Models',
-  'Computer Vision',
-  'Deep Learning',
-  'Model Fine-tuning',
-  'Neural Architecture',
-  'AI Ethics',
-];
+const passions = ['Large Language Models','Computer Vision','Deep Learning','Fine-tuning','Neural Architectures','AI Ethics'];
 
 export default function About() {
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.querySelectorAll('.animate-on-scroll').forEach((el, i) => {
-              setTimeout(() => el.classList.add('visible'), i * 100);
-            });
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
+  const ref = useScrollReveal();
 
   return (
-    <section id="about" ref={sectionRef} className="py-28 section-bg-alt">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="animate-on-scroll">
+    <section id="about" ref={ref} className="section-bg-alt relative py-28 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+
+        {/* Heading */}
+        <div className="reveal text-center mb-14">
+          <div className="section-divider" />
           <h2 className="section-heading">About Me</h2>
           <p className="section-subtitle">A little bit about who I am</p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Text Column */}
-          <div className="space-y-6 animate-on-scroll">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+
+          {/* Text */}
+          <div className="space-y-6 reveal-left">
             <div className="card-glass rounded-2xl p-8">
-              <p className="text-slate-300 text-lg leading-relaxed mb-6">
-                I'm <span className="text-teal-400 font-semibold">Koyeliya Ghosh</span>, a B.Tech CSE student at{' '}
-                <span className="text-cyan-400 font-semibold">MAKAUT (MSIT)</span>, based in Kolkata, West Bengal.
-                I'm deeply passionate about the intersection of intelligence and software — building systems that think, learn, and adapt.
+              <p className="text-slate-300 text-base leading-relaxed mb-5">
+                I'm <span style={{ color: '#2dd4bf', fontWeight: 600 }}>Koyeliya Ghosh</span>, a B.Tech CSE student at{' '}
+                <span style={{ color: '#22d3ee', fontWeight: 600 }}>MAKAUT (MSIT)</span>, Kolkata — passionate about
+                building systems that think, learn, and adapt.
               </p>
-
-              <p className="text-slate-400 leading-relaxed mb-6">
-                My journey spans across <span className="text-teal-400">AI/ML research</span>, open-source model publishing on HuggingFace,
-                internships with real-world ML deployments, and full-stack development. I believe in learning by building —
-                from fine-tuning 411M-parameter medical LLMs to crafting SOTA deepfake detectors.
+              <p className="text-slate-400 text-sm leading-relaxed mb-5">
+                My journey spans <span style={{ color: '#2dd4bf' }}>AI/ML research</span>, open-source model publishing
+                on HuggingFace, real-world internships, and full-stack development. From fine-tuning 411M-parameter
+                Medical LLMs to crafting SOTA deepfake detectors — I believe in learning by building.
               </p>
-
-              <p className="text-slate-400 leading-relaxed">
-                Beyond coding, I actively contribute to the developer community as an{' '}
-                <span className="text-cyan-400">App Team Member & Workshop Speaker at GDGC MSIT</span>,
-                where I mentor peers and share technical knowledge on emerging technologies.
+              <p className="text-slate-400 text-sm leading-relaxed">
+                Beyond code, I'm an{' '}
+                <span style={{ color: '#22d3ee' }}>App Team Member &amp; Workshop Speaker at GDGC MSIT</span>,
+                mentoring peers and sharing knowledge on emerging technologies.
               </p>
             </div>
 
-            {/* Passion Tags */}
+            {/* Passions */}
             <div>
-              <p className="text-slate-400 text-sm font-medium mb-3 uppercase tracking-wider">Passionate About</p>
+              <p className="text-slate-500 text-xs uppercase tracking-widest font-semibold mb-3">Passionate About</p>
               <div className="flex flex-wrap gap-2">
-                {passions.map((p) => (
-                  <span key={p} className="tech-badge">{p}</span>
-                ))}
+                {passions.map(p => <span key={p} className="tech-badge">{p}</span>)}
               </div>
             </div>
           </div>
 
-          {/* Highlights Grid */}
-          <div className="grid grid-cols-2 gap-4 animate-on-scroll">
-            {highlights.map(({ icon: Icon, label, desc }, i) => (
-              <div
-                key={label}
-                className="card-glass rounded-2xl p-6 text-center group"
-                style={{ animationDelay: `${i * 0.1}s` }}
-              >
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl mb-4 group-hover:scale-110 transition-transform duration-300"
-                  style={{ background: 'linear-gradient(135deg, rgba(20,184,166,0.2), rgba(6,182,212,0.2))' }}
-                >
-                  <Icon size={22} className="text-teal-400" />
+          {/* Highlight cards */}
+          <div className="grid grid-cols-2 gap-4 reveal-right">
+            {highlights.map(({ icon: Icon, label, desc, color }, i) => (
+              <div key={label}
+                className={`card-glass rounded-2xl p-6 text-center reveal delay-${i + 1}`}>
+                <div className="w-11 h-11 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform"
+                  style={{ background: `${color}18` }}>
+                  <Icon size={20} style={{ color }} />
                 </div>
-                <div className="font-semibold text-white text-sm mb-1">{label}</div>
+                <div className="font-semibold text-white text-sm mb-0.5">{label}</div>
                 <div className="text-slate-500 text-xs">{desc}</div>
               </div>
             ))}
 
-            {/* Quote Card */}
-            <div className="col-span-2 card-glass rounded-2xl p-6">
-              <p className="text-slate-400 text-sm italic text-center leading-relaxed">
+            {/* Quote */}
+            <div className="col-span-2 card-glass rounded-2xl p-5 text-center reveal delay-5">
+              <p className="text-slate-400 text-sm italic leading-relaxed">
                 "The best way to predict the future is to invent it."
               </p>
-              <p className="text-teal-400 text-xs text-center mt-2 font-medium">— Alan Kay</p>
+              <p className="text-xs font-semibold mt-2" style={{ color: '#2dd4bf' }}>— Alan Kay</p>
             </div>
           </div>
         </div>
